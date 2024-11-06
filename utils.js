@@ -1,17 +1,21 @@
 const axios = require("axios");
 const fs = require("fs");
 
-const profileId = "example"; // PROFILE ID from Adspower
-
 const emails = fs
   .readFileSync("emails.txt", "utf8")
   .split("\n")
   .map((email) => email.trim())
   .filter((email) => email !== "");
 
+const profiles = fs
+  .readFileSync("profiles.txt", "utf8")
+  .split("\n")
+  .map((profile) => profile.trim())
+  .filter((profile) => profile !== "");
+
 const LINK = "https://aztec.network/waitlist";
 
-async function getProxy() {
+async function getProxy(profileId) {
   const { data } = await axios.get(
     `http://local.adspower.com:50325/api/v1/browser/start`,
     {
@@ -27,6 +31,7 @@ async function getProxy() {
 
 module.exports = {
   emails,
+  profiles,
   LINK,
   getProxy,
 };
