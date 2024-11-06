@@ -1,7 +1,6 @@
-# add email in email.txt
-# add your profileId IN utils.js, from adsPower
-
-# terminal
+### 1) add email in email.txt
+### 2) add your profileId in utils.js file, from adsPower
+### 3) in terminal
 
 ```js
 npm i
