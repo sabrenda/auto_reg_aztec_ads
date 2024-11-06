@@ -39,6 +39,7 @@ async function startBrowserWithAdspower() {
     if (countEmail === 4) {
       await browser.close();
       indexProfile++;
+      if (profiles.length === indexProfile) indexProfile = 0;
       countEmail = 1;
     }
   }
@@ -51,11 +52,4 @@ if (emails.length === 0 || profiles.length === 0) {
   return;
 }
 
-if (emails.length / profiles.length > 10) {
-  console.log(
-    'error: Too many emails. Each profile can only have 10 email. Exiting...  '
-  );
-  return;
-}
-
-  startBrowserWithAdspower();
+startBrowserWithAdspower();
